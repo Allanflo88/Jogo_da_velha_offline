@@ -264,30 +264,27 @@ public class formTabuleiro extends javax.swing.JFrame {
     }//GEN-LAST:event_a1MouseClicked
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+        p1.setScore(0);
+        p2.setScore(0);
         reset();
+        
     }//GEN-LAST:event_btnIniciarActionPerformed
 
+    private void resetFields(JTextField x){
+        x.setText(" ");
+        x.setEnabled(true);
+    }
     private void reset() {
-        String x = " ";
         seq.add(p1);
-        a1.setText(x);
-        a1.setEnabled(true);
-        a2.setText(x);
-        a2.setEnabled(true);
-        a3.setText(x);
-        a3.setEnabled(true);
-        b1.setText(x);
-        b1.setEnabled(true);
-        b2.setText(x);
-        b2.setEnabled(true);
-        b3.setText(x);
-        b3.setEnabled(true);
-        c1.setText(x);
-        c1.setEnabled(true);
-        c2.setText(x);
-        c2.setEnabled(true);
-        c3.setText(x);
-        c3.setEnabled(true);
+        resetFields(a1);
+        resetFields(a2);
+        resetFields(a3);
+        resetFields(b1);
+        resetFields(b2);
+        resetFields(b3);
+        resetFields(c1);
+        resetFields(c2);
+        resetFields(c3);
         tab = new tabuleiro();
         lblP1.setText(String.valueOf(p1.getScore()));
         lblP2.setText(String.valueOf(p2.getScore()));
