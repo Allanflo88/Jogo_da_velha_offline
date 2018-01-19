@@ -228,21 +228,8 @@ public class formTabuleiro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void a1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseClicked
-       int tam = seq.size();
-       if(seq.get(tam-1).equals(p1)){
-           a1.setText("X");
-           seq.add(p2);
-           tab.insert('X', 0, 0);
-       }
-       else{
-           a1.setText("0");
-           seq.add(p1);
-           tab.insert('O', 0, 0);
-       }
-       a1.setEnabled(false);
-       int v = tab.Verifica();
-        switch (v) {
+    private void test(int x){
+        switch (x) {
             case 1:
                 p1.UpdateScore();
                 reset();
@@ -260,6 +247,25 @@ public class formTabuleiro extends javax.swing.JFrame {
             default:
                 break;
         }
+    }
+    
+    private void add(){
+        
+    }
+    private void a1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseClicked
+       int tam = seq.size();
+       if(seq.get(tam-1).equals(p1)){
+           a1.setText("X");
+           seq.add(p2);
+           tab.insert('X', 0, 0);
+       }
+       else{
+           a1.setText("0");
+           seq.add(p1);
+           tab.insert('O', 0, 0);
+       }
+       a1.setEnabled(false);
+        test(tab.Verifica());
     }//GEN-LAST:event_a1MouseClicked
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
@@ -304,25 +310,7 @@ public class formTabuleiro extends javax.swing.JFrame {
            tab.insert('O', 2, 1);
        }
        c2.setEnabled(false);
-       int v = tab.Verifica();
-        switch (v) {
-            case 1:
-                p1.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 1 ganhou !!!");
-                break;
-            case 0:
-                p2.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 2 ganhou !!!");
-                break;
-            case 3:
-                reset();
-                JOptionPane.showMessageDialog(null, "Empate !!!");
-                break;
-            default:
-                break;
-        }
+       test(tab.Verifica());
        
     }//GEN-LAST:event_c2MouseClicked
 
@@ -339,25 +327,7 @@ public class formTabuleiro extends javax.swing.JFrame {
            tab.insert('O', 0, 1);
        }
        a2.setEnabled(false);
-     int v = tab.Verifica();
-        switch (v) {
-            case 1:
-                p1.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 1 ganhou !!!");
-                break;
-            case 0:
-                p2.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 2 ganhou !!!");
-                break;
-            case 3:
-                reset();
-                JOptionPane.showMessageDialog(null, "Empate !!!");
-                break;
-            default:
-                break;
-        }
+     test(tab.Verifica());
     }//GEN-LAST:event_a2MouseClicked
 
     private void a3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a3MouseClicked
@@ -373,25 +343,7 @@ public class formTabuleiro extends javax.swing.JFrame {
            tab.insert('O', 0, 2);
        }
        a3.setEnabled(false);
-      int v = tab.Verifica();
-        switch (v) {
-            case 1:
-                p1.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 1 ganhou !!!");
-                break;
-            case 0:
-                p2.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 2 ganhou !!!");
-                break;
-            case 3:
-                reset();
-                JOptionPane.showMessageDialog(null, "Empate !!!");
-                break;
-            default:
-                break;
-        }
+      test(tab.Verifica());
     }//GEN-LAST:event_a3MouseClicked
 
     private void b1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseClicked
@@ -407,25 +359,7 @@ public class formTabuleiro extends javax.swing.JFrame {
            tab.insert('O', 1, 0);
        }
        b1.setEnabled(false);
-      int v = tab.Verifica();
-        switch (v) {
-            case 1:
-                p1.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 1 ganhou !!!");
-                break;
-            case 0:
-                p2.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 2 ganhou !!!");
-                break;
-            case 3:
-                reset();
-                JOptionPane.showMessageDialog(null, "Empate !!!");
-                break;
-            default:
-                break;
-        }
+      test(tab.Verifica());
     }//GEN-LAST:event_b1MouseClicked
 
     private void b2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseClicked
@@ -441,25 +375,7 @@ public class formTabuleiro extends javax.swing.JFrame {
            tab.insert('O', 1, 1);
        }
        b2.setEnabled(false);
-       int v = tab.Verifica();
-        switch (v) {
-            case 1:
-                p1.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 1 ganhou !!!");
-                break;
-            case 0:
-                p2.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 2 ganhou !!!");
-                break;
-            case 3:
-                reset();
-                JOptionPane.showMessageDialog(null, "Empate !!!");
-                break;
-            default:
-                break;
-        }
+       test(tab.Verifica());
     }//GEN-LAST:event_b2MouseClicked
 
     private void b3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseClicked
@@ -475,25 +391,7 @@ public class formTabuleiro extends javax.swing.JFrame {
            tab.insert('O', 1, 2);
        }
        b3.setEnabled(false);
-       int v = tab.Verifica();
-        switch (v) {
-            case 1:
-                p1.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 1 ganhou !!!");
-                break;
-            case 0:
-                p2.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 2 ganhou !!!");
-                break;
-            case 3:
-                reset();
-                JOptionPane.showMessageDialog(null, "Empate !!!");
-                break;
-            default:
-                break;
-        }
+       test(tab.Verifica());
     }//GEN-LAST:event_b3MouseClicked
 
     private void c1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_c1MouseClicked
@@ -509,25 +407,7 @@ public class formTabuleiro extends javax.swing.JFrame {
            tab.insert('O', 2, 0);
        }
        c1.setEnabled(false);
-       int v = tab.Verifica();
-        switch (v) {
-            case 1:
-                p1.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 1 ganhou !!!");
-                break;
-            case 0:
-                p2.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 2 ganhou !!!");
-                break;
-            case 3:
-                reset();
-                JOptionPane.showMessageDialog(null, "Empate !!!");
-                break;
-            default:
-                break;
-        }
+       test(tab.Verifica());
     }//GEN-LAST:event_c1MouseClicked
 
     private void c3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_c3MouseClicked
@@ -543,25 +423,7 @@ public class formTabuleiro extends javax.swing.JFrame {
            tab.insert('O', 2, 2);
        }
        c3.setEnabled(false);
-       int v = tab.Verifica();
-        switch (v) {
-            case 1:
-                p1.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 1 ganhou !!!");
-                break;
-            case 0:
-                p2.UpdateScore();
-                reset();
-                JOptionPane.showMessageDialog(null, "Jogador 2 ganhou !!!");
-                break;
-            case 3:
-                reset();
-                JOptionPane.showMessageDialog(null, "Empate !!!");
-                break;
-            default:
-                break;
-        }
+       test(tab.Verifica());
     }//GEN-LAST:event_c3MouseClicked
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
