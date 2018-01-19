@@ -4,6 +4,8 @@ import Model.player;
 import Model.tabuleiro;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author allan
@@ -43,11 +45,6 @@ public class formTabuleiro extends javax.swing.JFrame {
         btnIniciar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                formMousePressed(evt);
-            }
-        });
 
         a1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         a1.setEnabled(false);
@@ -228,7 +225,8 @@ public class formTabuleiro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void test(int x){
+    private void test(int x, JTextField y) {
+        y.setEnabled(false);
         switch (x) {
             case 1:
                 p1.UpdateScore();
@@ -248,31 +246,28 @@ public class formTabuleiro extends javax.swing.JFrame {
                 break;
         }
     }
-    
-    private void add(){
-        
+
+    private void add(int tam, JTextField campo, int x, int y) {
+        if (seq.get(tam - 1).equals(p1)) {
+            campo.setText("X");
+            seq.add(p2);
+            tab.insert('X', x, y);
+        } else {
+            campo.setText("0");
+            seq.add(p1);
+            tab.insert('O', x, y);
+        }
     }
     private void a1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a1MouseClicked
-       int tam = seq.size();
-       if(seq.get(tam-1).equals(p1)){
-           a1.setText("X");
-           seq.add(p2);
-           tab.insert('X', 0, 0);
-       }
-       else{
-           a1.setText("0");
-           seq.add(p1);
-           tab.insert('O', 0, 0);
-       }
-       a1.setEnabled(false);
-        test(tab.Verifica());
+        add(seq.size(), a1, 0, 0);
+        test(tab.Verifica(), a1);
     }//GEN-LAST:event_a1MouseClicked
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         reset();
     }//GEN-LAST:event_btnIniciarActionPerformed
 
-    private void reset(){
+    private void reset() {
         String x = " ";
         seq.add(p1);
         a1.setText(x);
@@ -298,137 +293,46 @@ public class formTabuleiro extends javax.swing.JFrame {
         lblP2.setText(String.valueOf(p2.getScore()));
     }
     private void c2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_c2MouseClicked
-       int tam = seq.size();
-       if(seq.get(tam-1).equals(p1)){
-           c2.setText("X");
-           seq.add(p2);
-           tab.insert('X', 2, 1);
-       }
-       else{
-           c2.setText("0");
-           seq.add(p1);
-           tab.insert('O', 2, 1);
-       }
-       c2.setEnabled(false);
-       test(tab.Verifica());
-       
+        add(seq.size(), c2, 2, 1);
+        test(tab.Verifica(), c2);
+
     }//GEN-LAST:event_c2MouseClicked
 
     private void a2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a2MouseClicked
-       int tam = seq.size();
-       if(seq.get(tam-1).equals(p1)){
-           a2.setText("X");
-           seq.add(p2);
-           tab.insert('X', 0, 1);
-       }
-       else{
-           a2.setText("0");
-           seq.add(p1);
-           tab.insert('O', 0, 1);
-       }
-       a2.setEnabled(false);
-     test(tab.Verifica());
+        add(seq.size(), a2, 0, 1);
+        test(tab.Verifica(), a2);
+
     }//GEN-LAST:event_a2MouseClicked
 
     private void a3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_a3MouseClicked
-        int tam = seq.size();
-       if(seq.get(tam-1).equals(p1)){
-           a3.setText("X");
-           seq.add(p2);
-           tab.insert('X', 0, 2);
-       }
-       else{
-           a3.setText("0");
-           seq.add(p1);
-           tab.insert('O', 0, 2);
-       }
-       a3.setEnabled(false);
-      test(tab.Verifica());
+        add(seq.size(), a3, 0, 2);
+        test(tab.Verifica(), a3);
     }//GEN-LAST:event_a3MouseClicked
 
     private void b1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseClicked
-        int tam = seq.size();
-       if(seq.get(tam-1).equals(p1)){
-           b1.setText("X");
-           seq.add(p2);
-           tab.insert('X', 1, 0);
-       }
-       else{
-           b1.setText("0");
-           seq.add(p1);
-           tab.insert('O', 1, 0);
-       }
-       b1.setEnabled(false);
-      test(tab.Verifica());
+        add(seq.size(), b1, 1, 0);
+        test(tab.Verifica(), b1);
     }//GEN-LAST:event_b1MouseClicked
 
     private void b2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseClicked
-        int tam = seq.size();
-       if(seq.get(tam-1).equals(p1)){
-           b2.setText("X");
-           seq.add(p2);
-           tab.insert('X', 1, 1);
-       }
-       else{
-           b2.setText("0");
-           seq.add(p1);
-           tab.insert('O', 1, 1);
-       }
-       b2.setEnabled(false);
-       test(tab.Verifica());
+        add(seq.size(), b2, 1, 1);
+        test(tab.Verifica(), b2);
     }//GEN-LAST:event_b2MouseClicked
 
     private void b3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseClicked
-       int tam = seq.size();
-       if(seq.get(tam-1).equals(p1)){
-           b3.setText("X");
-           seq.add(p2);
-           tab.insert('X', 1, 2);
-       }
-       else{
-           b3.setText("0");
-           seq.add(p1);
-           tab.insert('O', 1, 2);
-       }
-       b3.setEnabled(false);
-       test(tab.Verifica());
+        add(seq.size(), b3, 1, 2);
+        test(tab.Verifica(), b3);
     }//GEN-LAST:event_b3MouseClicked
 
     private void c1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_c1MouseClicked
-        int tam = seq.size();
-       if(seq.get(tam-1).equals(p1)){
-           c1.setText("X");
-           seq.add(p2);
-           tab.insert('X', 2, 0);
-       }
-       else{
-           c1.setText("0");
-           seq.add(p1);
-           tab.insert('O', 2, 0);
-       }
-       c1.setEnabled(false);
-       test(tab.Verifica());
+        add(seq.size(), c1, 2, 0);
+        test(tab.Verifica(), c1);
     }//GEN-LAST:event_c1MouseClicked
 
     private void c3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_c3MouseClicked
-        int tam = seq.size();
-       if(seq.get(tam-1).equals(p1)){
-           c3.setText("X");
-           seq.add(p2);
-           tab.insert('X', 2, 2);
-       }
-       else{
-           c3.setText("0");
-           seq.add(p1);
-           tab.insert('O', 2, 2);
-       }
-       c3.setEnabled(false);
-       test(tab.Verifica());
+        add(seq.size(), c3, 2, 2);
+        test(tab.Verifica(), c3);
     }//GEN-LAST:event_c3MouseClicked
-
-    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-       
-    }//GEN-LAST:event_formMousePressed
 
     /**
      * @param args the command line arguments
@@ -461,8 +365,7 @@ public class formTabuleiro extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new formTabuleiro().setVisible(true);
-                
-                
+
             }
         });
     }
@@ -485,8 +388,8 @@ public class formTabuleiro extends javax.swing.JFrame {
     private javax.swing.JLabel lblP2;
     // End of variables declaration//GEN-END:variables
     player p1 = new player("p1");
-    player p2 = new player("p2");   
+    player p2 = new player("p2");
     ArrayList<player> seq = new ArrayList<>();
     tabuleiro tab = new tabuleiro();
-    
+
 }
